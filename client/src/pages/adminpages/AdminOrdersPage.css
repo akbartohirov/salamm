@@ -1,0 +1,24 @@
+.adminOrdersPage {
+  flex: 5;
+  padding: 15px 20px;
+}
+
+.adminOrdersPage {
+  flex: 5;
+  padding: 15px 20px;
+}
+
+.adminOrdersPageTitle {
+  float: left;
+  font-size: 2rem;
+}
+
+.adminOrdersPageCreate {
+  float: right;
+}
+
+.adminOrdersPageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

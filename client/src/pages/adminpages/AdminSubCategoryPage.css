@@ -1,0 +1,13 @@
+.adminCategoryPage {
+  flex: 5;
+  padding: 15px 20px;
+}
+
+.adminUserPageTitle {
+  float: left;
+  font-size: 2rem;
+}
+
+.adminUserPageCreate {
+  float: right;
+}

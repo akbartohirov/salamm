@@ -1,0 +1,49 @@
+.searchedProduct {
+  display: flex;
+  height: 120px;
+  margin-bottom: 2rem;
+  padding: 0 20px;
+}
+
+.searchedProductImage {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .searchedProduct {
+    height: 80px;
+    /* font-size: 12px; */
+    padding: 0 !important;
+  }
+
+  .searchedProductImage {
+    flex: 2 !important;
+  }
+
+  .searchedProductTitle {
+    flex: 3 !important;
+  }
+
+  .searchedProductTitleLink {
+    font-size: 12px !important;
+  }
+}
+
+.searchedProductImage img {
+  height: 100%;
+  border-radius: 15px;
+}
+
+.searchedProductTitle {
+  flex: 4;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.searchedProductTitleLink {
+  color: #4d4d4d;
+  font-size: 24px;
+}

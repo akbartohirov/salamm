@@ -1,0 +1,15 @@
+.prodcuct-card-title {
+  text-transform: capitalize;
+  transition: 0.2s all;
+}
+
+.prodcuct-card-title:hover {
+  color: #313131 !important;
+  text-transform: capitalize;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

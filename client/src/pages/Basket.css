@@ -1,0 +1,81 @@
+.basket {
+  min-height: 500px;
+  margin-bottom: 3rem;
+}
+
+.products {
+  height: 100%;
+}
+
+.form {
+  width: 100%;
+  height: auto;
+  background-color: #eee;
+  padding: 40px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-summ {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-btn {
+  width: 100%;
+}
+
+.form-price-title {
+  font-size: 1.3rem;
+}
+
+.form-summ-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.form-summ-number {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.choose {
+  display: flex;
+  padding: 0px;
+}
+
+.choose__option {
+  height: 50px;
+  background-color: rgba(176, 180, 180, 0.2);
+  border: 1px solid rgba(38, 166, 154, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #000;
+}
+
+.active {
+  border: 1px solid rgb(24, 109, 100);
+}
+
+.empty {
+  color: rgb(122, 122, 122);
+  text-align: center;
+  margin-top: 3rem;
+}

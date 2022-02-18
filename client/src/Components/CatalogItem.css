@@ -1,0 +1,23 @@
+.catalog__item {
+  display: flex;
+  height: 150px;
+  width: 250px;
+}
+
+.catalog__item-img {
+  width: 80px;
+}
+
+.catalog__item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.link__hover {
+  transition: 0.2s;
+}
+
+.link__hover:hover {
+  color: rgb(255, 134, 104) !important;
+}

@@ -1,0 +1,115 @@
+.box-image {
+  height: 320px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  width: 100%;
+  padding: 0 50px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url("//res.cloudinary.com/lmru-test/image/upload/f_auto,q_auto,w_1180,h_320,dpr_1.0,d_photoiscoming.png/elbrus/images/main-new/search/novyi-god-search-d.jpg");
+}
+
+@media screen and (max-width: 768px) {
+  .box-image {
+    height: 200px;
+  }
+}
+
+.box-image div {
+  border-radius: 3px;
+}
+
+.box-image__catalog {
+  height: 50px;
+  width: 140px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+@media screen and (max-width: 768px) {
+  .box-image__catalog {
+    display: none;
+  }
+}
+
+.box-image__catalog:hover {
+  box-shadow: 0 4px 8px #d6d6d6;
+}
+
+.box-image__search {
+  height: 50px;
+  width: 430px;
+  background-color: #fff;
+  transition: 0.2s all;
+  padding: 0 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .box-image__search {
+    width: 100%;
+  }
+}
+
+.box-image__search:hover {
+  box-shadow: 0 4px 8px #d6d6d6;
+}
+
+.input-field {
+  padding-left: 10px;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchInput {
+  border: none !important;
+  padding: 0 10px;
+  margin: 0 !important;
+}
+
+.searchInput:focus {
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  background-color: #fff !important;
+}
+.search__input {
+  width: 300px;
+  padding: 0 10px;
+}
+
+.search__button {
+  width: 55px;
+  height: 45px;
+  background-color: #43a047;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: 0.2s all;
+  border: none;
+}
+
+.search__button:hover {
+  background-color: #3e9243;
+}
+
+.brand {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
