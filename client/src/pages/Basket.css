@@ -79,3 +79,10 @@
   text-align: center;
   margin-top: 3rem;
 }
+
+@media screen and (max-width: 768px) {
+  .empty {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+}

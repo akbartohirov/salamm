@@ -3,6 +3,11 @@
   cursor: pointer;
 }
 
+.basket-item {
+  display: flex;
+  align-items: center;
+}
+
 .delete:hover {
   color: #ff0000;
 }
@@ -35,10 +40,17 @@
   border-radius: 10px;
 }
 
+.flexed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .order-title {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
 }
 
 .order-quantity {
@@ -57,8 +69,30 @@
   align-items: center;
 }
 
+.order-price h4 {
+  font-size: 16px;
+}
+
 .order-delete {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .order-image {
+    width: 40px;
+  }
+
+  .order-price h4 {
+    font-size: 12px;
+  }
+
+  .order-title {
+    font-size: 8px;
+  }
+
+  .basket-select {
+    width: 70px;
+  }
 }

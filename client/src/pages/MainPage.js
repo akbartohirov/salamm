@@ -11,29 +11,24 @@ import SearchProductItem from "../Components/SearchProductItem";
 const MainPage = () => {
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("/products?new=true", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        setProducts(res.data);
-      });
+    axios.get("/products?new=true").then((res) => {
+      setProducts(res.data);
+    });
   }, []);
 
   useEffect(() => {
-    axios
-      .get("/brand", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        setBrands(res.data);
-      });
+    axios.get("/companies").then((res) => {
+      setCompanies(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("/brand").then((res) => {
+      setBrands(res.data);
+    });
   }, []);
 
   const [searchWord, setSearchWord] = useState("");
@@ -119,13 +114,15 @@ const MainPage = () => {
         Card={CatalogProductItem}
         numSlide={4}
       />
+
       <AutoCarousel />
+      <h4 style={{ color: "grey", fontWeight: "500" }}>Хит продажи</h4>
       <Slick
         data={products && products}
         Card={CatalogProductItem}
         numSlide={4}
       />
-      <div>
+      <div className="brands">
         <h3>Популярные бренды</h3>
         <div className="brand">
           {brands &&
@@ -133,10 +130,54 @@ const MainPage = () => {
               <Link key={brand._id} to={`/brand/${brand._id}`}>
                 <img
                   src={`/${brand.img.path}`}
-                  style={{ width: "200px", margin: "20px" }}
+                  style={{ height: "150px", width: "auto", margin: "20px" }}
                   alt={brand.brandName}
                 />
               </Link>
+            ))}
+          {brands &&
+            brands.map((brand) => (
+              <Link key={brand._id} to={`/brand/${brand._id}`}>
+                <img
+                  src={`/${brand.img.path}`}
+                  style={{ height: "150px", width: "auto", margin: "20px" }}
+                  alt={brand.brandName}
+                />
+              </Link>
+            ))}
+          {brands &&
+            brands.map((brand) => (
+              <Link
+                style={{ textAlign: "center" }}
+                key={brand._id}
+                to={`/brand/${brand._id}`}
+              >
+                <img
+                  src={`/${brand.img.path}`}
+                  style={{ height: "150px", width: "auto", margin: "20px" }}
+                  alt={brand.brandName}
+                />
+              </Link>
+            ))}
+        </div>
+      </div>
+
+      <div>
+        <h3>Наши сотрудники</h3>
+        <div className="brand">
+          {companies &&
+            companies.map((company) => (
+              <a
+                style={{ textAlign: "center" }}
+                key={company._id}
+                href={`${company.companyLink}`}
+              >
+                <img
+                  src={`/${company.img.path}`}
+                  style={{ height: "150px", width: "auto", margin: "20px" }}
+                  alt={company.companyLink}
+                />
+              </a>
             ))}
         </div>
       </div>

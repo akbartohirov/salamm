@@ -12,6 +12,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const subCategoryRoutes = require("./routes/subCategoryRoutes");
 const subSubCategoryRoutes = require("./routes/subSubCategoryRoutes");
 const brandRoutes = require("./routes/brandRoutes");
+const companyRoutes = require("./routes/companyRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
 mongoose
@@ -35,6 +36,7 @@ app.use("/category", categoryRoutes);
 app.use("/subcategory", subCategoryRoutes);
 app.use("/subsubcategory", subSubCategoryRoutes);
 app.use("/brand", brandRoutes);
+app.use("/companies", companyRoutes);
 app.use("/payment", paymentRoutes);
 
 if (process.env.NODE_ENV === "production") {

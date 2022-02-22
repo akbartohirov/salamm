@@ -3,16 +3,16 @@ import "./BasketOrderItem.css";
 
 const BasketOrderItem = ({ data, deleteHandler, quantityHandler }) => {
   return (
-    <div className="basket-order mb-2">
-      <div className="order-image-box ml-1">
+    <div className="row basket-item mb-2">
+      <div className="col s2 order-image-box ml-1 flexed ">
         <img className="order-image" alt="product img" src={data.img[0].path} />
       </div>
-      <div className="order-title">
+      <div className="col s4 order-title">
         <p>{data.title}</p>
       </div>
-      <div className="order-quantity row">
+      <div className="order-quantity col s2 flexed">
         <select
-          className="browser-default"
+          className="browser-default basket-select"
           value={data.quantity}
           onChange={(e) => quantityHandler(e, data.productId)}
         >
@@ -26,13 +26,13 @@ const BasketOrderItem = ({ data, deleteHandler, quantityHandler }) => {
           ))}
         </select>
       </div>
-      <div className="order-price">
-        <h4 style={{ fontSize: "1.5rem" }}>{data.price}$</h4>
+      <div className="order-price col s3 flexed">
+        <h4>{data.price}$</h4>
       </div>
       {deleteHandler && (
         <div
           onClick={deleteHandler && ((e) => deleteHandler(e, data.productId))}
-          className="order-delete"
+          className="order-delete col s1 flexed"
         >
           <i className="fas fa-trash-alt delete"></i>
         </div>

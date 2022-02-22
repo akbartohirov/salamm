@@ -1,6 +1,7 @@
 .prodcuct-card-title {
   text-transform: capitalize;
   transition: 0.2s all;
+  font-size: 18px !important;
 }
 
 .prodcuct-card-title:hover {
@@ -12,4 +13,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card-content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-// import dark from "../dark.svg";
-import logo from "../Salammarketlogo.png";
-// import logo2 from "../Salam market logo svg100.svg";
+import logo3 from "../Salam Market logo.svg";
 import AuthContext from "../Context/AuthContext";
 
 const Navbar = ({ isAuthenticated, isAdmin }) => {
@@ -20,15 +18,20 @@ const Navbar = ({ isAuthenticated, isAdmin }) => {
     history.push("/");
   };
 
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("nav");
+    header.classList.toggle("shadow", window.scrollY === 0);
+  });
+
   return (
     <React.Fragment>
-      <nav className="white sticky">
+      <nav className="shadow white sticky">
         <div className="nav-wrapper container">
           <a href="/" className="brand-logo" style={{ height: "100%" }}>
             <img
               alt="logo"
               className="logo"
-              src={logo}
+              src={logo3}
               style={{ height: "100%", padding: "10px" }}
             />
           </a>

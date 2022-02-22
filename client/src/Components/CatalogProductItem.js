@@ -46,7 +46,7 @@ const CatalogProductItem = ({ data, ownstyle }) => {
   };
 
   return (
-    <div className="col s12 m3" style={ownstyle && ownstyle}>
+    <div className="col s12 m6 l4 xl3" style={ownstyle && ownstyle}>
       <div className="card">
         <div
           className="card-image"
@@ -56,8 +56,8 @@ const CatalogProductItem = ({ data, ownstyle }) => {
             style={{
               height: "100%",
               width: "auto",
-              padding: "10px",
-              marginTop: "10px",
+              padding: "20px",
+              marginTop: "20px",
             }}
             src={`/${data.img[0].path}`}
             alt="product img"

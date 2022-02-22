@@ -2,7 +2,7 @@ const express = require("express");
 const { auth } = require("../middleware/auth");
 const router = express.Router();
 const multer = require("multer");
-const Category = require("../models/Category");
+const Companies = require("../models/Companies");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -14,11 +14,13 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
+  console.log(file.mimetype);
+
   if (
+    file.mimetype === "image/svg" ||
     file.mimetype === "image/jpeg" ||
     file.mimetype === "image/svg+xml" ||
-    file.mimetype === "image/png" ||
-    file.mimetype === "image/svg"
+    file.mimetype === "image/png"
   ) {
     cb(null, true);
   } else {
@@ -36,23 +38,23 @@ const upload = multer({
 
 router.post("/", upload.single("img"), async (req, res) => {
   const file = req.file;
-  const categoryName = req.body.categoryName;
+  const companyLink = req.body.companyLink;
 
-  const isExists = await Category.findOne({ categoryName });
+  const isExists = await Companies.findOne({ companyLink });
 
   if (isExists) {
-    return res.status(403).send({ message: "Duplicate categoryname" });
+    return res.status(403).send({ message: "Duplicate value" });
   }
 
   try {
-    const category = new Category({
+    const company = new Companies({
       img: { filename: file.filename, path: file.path },
-      categoryName,
+      companyLink,
     });
 
-    await category.save();
+    await company.save();
 
-    res.status(201).send(category);
+    res.status(201).send(company);
   } catch (e) {
     res.status(500).send({ error: e.message });
   }
@@ -60,9 +62,9 @@ router.post("/", upload.single("img"), async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const categories = await Category.find({});
+    const companies = await Companies.find({});
 
-    res.status(200).send(categories);
+    res.status(200).send(companies);
   } catch (e) {
     res.status(500).send({ error: e.message });
   }
@@ -72,13 +74,13 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const category = await Category.findById(id);
+    const company = await Companies.findById(id);
 
-    if (!category) {
-      return res.status(404).send({ message: "category not found" });
+    if (!company) {
+      return res.status(404).send({ message: "company not found" });
     }
 
-    res.status(200).send(category);
+    res.status(200).send(company);
   } catch (e) {
     res.status(500).send({ error: e.message });
   }
@@ -86,22 +88,22 @@ router.get("/:id", async (req, res) => {
 
 router.patch("/:id", upload.single("img"), async (req, res) => {
   const id = req.params.id;
-  const { categoryName } = req.body;
+  const { companyLink } = req.body;
   const img = req.file;
 
   try {
-    const categoryToUpdate = await Category.findById(id);
+    const companyToUpdate = await Companies.findById(id);
 
-    if (categoryToUpdate) {
-      categoryToUpdate.categoryName = categoryName
-        ? categoryName
-        : categoryToUpdate.categoryName;
-      categoryToUpdate.img = img
+    if (companyToUpdate) {
+      companyToUpdate.companyLink = companyLink
+        ? companyLink
+        : companyToUpdate.companyLink;
+      companyToUpdate.img = img
         ? { filename: img.filename, path: img.path }
-        : categoryToUpdate.img;
+        : companyToUpdate.img;
 
-      await categoryToUpdate.save();
-      res.status(200).send(categoryToUpdate);
+      await companyToUpdate.save();
+      res.status(200).send(companyToUpdate);
     } else {
       res.status(404).send({ message: e.message });
     }
@@ -114,14 +116,14 @@ router.delete("/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const category = await Category.findById(id);
+    const company = await Companies.findById(id);
 
-    if (!category) {
-      return res.status(404).send({ message: "category not found" });
+    if (!company) {
+      return res.status(404).send({ message: "company not found" });
     }
 
-    await category.remove();
-    res.status(200).send({ message: "category has been deleted" });
+    await company.remove();
+    res.status(200).send({ message: "company has been deleted" });
   } catch (e) {
     res.status(500).send({ error: e.message });
   }

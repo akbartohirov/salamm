@@ -109,6 +109,10 @@ body {
   color: rgb(56, 120, 163);
 }
 
-.container {
-  width: 65% !important;
+nav {
+  transition: 0.3s;
+}
+
+.shadow {
+  box-shadow: none !important;
 }
