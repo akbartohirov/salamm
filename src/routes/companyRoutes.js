@@ -39,8 +39,9 @@ const upload = multer({
 router.post("/", upload.single("img"), async (req, res) => {
   const file = req.file;
   const companyLink = req.body.companyLink;
+  const companyName = req.body.companyName;
 
-  const isExists = await Companies.findOne({ companyLink });
+  const isExists = await Companies.findOne({ companyName });
 
   if (isExists) {
     return res.status(403).send({ message: "Duplicate value" });
@@ -50,6 +51,7 @@ router.post("/", upload.single("img"), async (req, res) => {
     const company = new Companies({
       img: { filename: file.filename, path: file.path },
       companyLink,
+      companyName,
     });
 
     await company.save();
@@ -89,6 +91,7 @@ router.get("/:id", async (req, res) => {
 router.patch("/:id", upload.single("img"), async (req, res) => {
   const id = req.params.id;
   const { companyLink } = req.body;
+  const { companyName } = req.body;
   const img = req.file;
 
   try {
@@ -98,6 +101,9 @@ router.patch("/:id", upload.single("img"), async (req, res) => {
       companyToUpdate.companyLink = companyLink
         ? companyLink
         : companyToUpdate.companyLink;
+      companyToUpdate.companyName = companyName
+        ? companyName
+        : companyToUpdate.companyName;
       companyToUpdate.img = img
         ? { filename: img.filename, path: img.path }
         : companyToUpdate.img;

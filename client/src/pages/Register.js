@@ -32,7 +32,12 @@ const Register = () => {
         },
       });
       window.M.toast({ html: "Ползователь создан", classes: "loginToast" });
-      auth.login(user.data.token, user.data.user._id);
+      auth.login(
+        user.data.token,
+        user.data.user._id,
+        user.data.user.isAdminAddProduct,
+        user.data.user.isAdminOrderViewer
+      );
       history.push("/");
     } catch (e) {
       window.M.toast({ html: "Что то пошло не так", classes: "loginToastRed" });

@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e8823658.chunk.css",
+    "main.js": "/static/js/main.350beae7.chunk.js",
+    "main.js.map": "/static/js/main.350beae7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/css/2.1a0e5cb2.chunk.css": "/static/css/2.1a0e5cb2.chunk.css",
+    "static/js/2.f60dd188.chunk.js": "/static/js/2.f60dd188.chunk.js",
+    "static/js/2.f60dd188.chunk.js.map": "/static/js/2.f60dd188.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.1a0e5cb2.chunk.css.map": "/static/css/2.1a0e5cb2.chunk.css.map",
+    "static/css/main.e8823658.chunk.css.map": "/static/css/main.e8823658.chunk.css.map",
+    "static/js/2.f60dd188.chunk.js.LICENSE.txt": "/static/js/2.f60dd188.chunk.js.LICENSE.txt",
+    "static/media/Salam Market logo.a94607ab.svg": "/static/media/Salam Market logo.a94607ab.svg",
+    "static/media/slide1.54cde0a1.jpg": "/static/media/slide1.54cde0a1.jpg",
+    "static/media/slide2.d7d64bad.jpg": "/static/media/slide2.d7d64bad.jpg",
+    "static/media/slide3.3cc4a426.jpg": "/static/media/slide3.3cc4a426.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/css/2.1a0e5cb2.chunk.css",
+    "static/js/2.f60dd188.chunk.js",
+    "static/css/main.e8823658.chunk.css",
+    "static/js/main.350beae7.chunk.js"
+  ]
+}

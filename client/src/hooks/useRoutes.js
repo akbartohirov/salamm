@@ -21,6 +21,7 @@ import AdminSubCategoryPage from "../pages/adminpages/AdminSubCategoryPage";
 import AdminSubCategoryDetailsPage from "../pages/adminpages/admindetailspage/AdminSubCategoryDetailsPage";
 import AdminSubSubCategoryPage from "../pages/adminpages/AdminSubSubCategoryPage";
 import AdminSubSubCategoryDetailsPage from "../pages/adminpages/admindetailspage/AdminSubSubCategoryDetailsPage";
+import AdminCompaniesPage from "../pages/adminpages/AdminCompaniesPage";
 import AdminBrandsPage from "../pages/adminpages/AdminBrandsPage";
 import AdminBrandDetailsPage from "../pages/adminpages/admindetailspage/AdminBrandDetailsPage";
 import Brands from "../pages/Brands";
@@ -121,6 +122,10 @@ const useRoutes = (isAuthenticated, user) => {
 
             <Route exact path="/admin/brands/:id">
               <AdminBrandDetailsPage />
+            </Route>
+
+            <Route exact path="/admin/companies">
+              <AdminCompaniesPage />
             </Route>
           </>
         )}

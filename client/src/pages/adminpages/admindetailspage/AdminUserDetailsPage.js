@@ -53,7 +53,28 @@ const AdminUserDetailsPage = () => {
 
   const submitHanler = (e) => {
     e.preventDefault();
-    console.log();
+    const { token } = JSON.parse(localStorage.getItem("userData"));
+
+    axios
+      .patch(
+        `/users/${id}`,
+        { name, email, phone, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        window.M.toast({ html: "Имзменения сохранени", classes: "loginToast" });
+      })
+      .catch((e) => {
+        window.M.toast({
+          html: "Что то прошлоо не так",
+          classes: "loginToastRed",
+        });
+      });
   };
 
   return (

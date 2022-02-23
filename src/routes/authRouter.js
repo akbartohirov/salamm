@@ -26,7 +26,7 @@ router.post(
       const checkUser = await User.findOne({ email });
 
       if (checkUser) {
-        res.status(400).send({
+        return res.status(403).send({
           msg: "User already exists",
         });
       }
