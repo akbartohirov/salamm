@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import logo3 from "../Salam Market logo.svg";
 import AuthContext from "../Context/AuthContext";
 
-const Navbar = ({ isAuthenticated, isAdmin }) => {
+const Navbar = ({ isAuthenticated, isAdmin, addProduct, orderViewer }) => {
   const sidebar = () => {
     var elems = document.querySelectorAll(".sidenav");
     window.M.Sidenav.init(elems);
@@ -49,7 +49,29 @@ const Navbar = ({ isAuthenticated, isAdmin }) => {
               <li>
                 <Link className="indigo-text text-danken-5" to="/admin/users">
                   {"  "}
-                  <i className="fas fa-user-cog"></i>&nbsp; Админ панель
+                  <i className="fas fa-user-cog"></i>&nbsp;Главный админ
+                </Link>
+              </li>
+            )}
+
+            {addProduct && (
+              <li>
+                <Link
+                  className="indigo-text text-danken-5"
+                  to="/admin/onlyaddproduct"
+                >
+                  <i className="fas fa-user-cog"></i>&nbsp;Админ 2
+                </Link>
+              </li>
+            )}
+
+            {orderViewer && (
+              <li>
+                <Link
+                  className="indigo-text text-danken-5"
+                  to="/admin/onlyorderview"
+                >
+                  <i className="fas fa-user-cog"></i>&nbsp;Админ 3
                 </Link>
               </li>
             )}

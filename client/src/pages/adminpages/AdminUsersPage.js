@@ -61,7 +61,9 @@ const AdminUsersPage = () => {
               <th>Имя</th>
               <th>Електронная почта</th>
               <th>Телефон ноиер</th>
-              <th>Админ</th>
+              <th>Главный админ</th>
+              <th>Админ 1</th>
+              <th>Админ 2</th>
               <th>Создан</th>
               <th></th>
             </tr>
@@ -77,6 +79,22 @@ const AdminUsersPage = () => {
                   <th>{user.phone}</th>
                   <th>
                     {user.isAdmin ? (
+                      <i className="fas fa-check success light-green-text accent-3-text"></i>
+                    ) : (
+                      <i className="fas fa-times deep-orange-text darken-1-text"></i>
+                    )}
+                  </th>
+
+                  <th>
+                    {user.isAdminAddProduct ? (
+                      <i className="fas fa-check success light-green-text accent-3-text"></i>
+                    ) : (
+                      <i className="fas fa-times deep-orange-text darken-1-text"></i>
+                    )}
+                  </th>
+
+                  <th>
+                    {user.isAdminOrderViewer ? (
                       <i className="fas fa-check success light-green-text accent-3-text"></i>
                     ) : (
                       <i className="fas fa-times deep-orange-text darken-1-text"></i>

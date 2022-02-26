@@ -2,10 +2,15 @@ import React from "react";
 import "./BasketOrderItem.css";
 
 const BasketOrderItem = ({ data, deleteHandler, quantityHandler }) => {
+  console.log(data);
   return (
     <div className="row basket-item mb-2">
       <div className="col s2 order-image-box ml-1 flexed ">
-        <img className="order-image" alt="product img" src={data.img[0].path} />
+        <img
+          className="order-image"
+          alt="product img"
+          src={data?.img[0].path}
+        />
       </div>
       <div className="col s4 order-title">
         <p>{data.title}</p>

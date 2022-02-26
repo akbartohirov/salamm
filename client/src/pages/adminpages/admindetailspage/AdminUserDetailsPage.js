@@ -9,6 +9,8 @@ const AdminUserDetailsPage = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [isAdminAddProduct, setIsAdminAddProduct] = React.useState(false);
+  const [isAdminOrderViewer, setIsAdminOrderViewer] = React.useState(false);
   const [password, setPassword] = React.useState("");
   const [userOrders, setUserOrders] = React.useState([]);
 
@@ -25,6 +27,8 @@ const AdminUserDetailsPage = () => {
       })
       .then(({ data }) => {
         setName(data.user.name);
+        setIsAdminAddProduct(data.user.isAdminAddProduct);
+        setIsAdminOrderViewer(data.user.isAdminAddProduct);
         setEmail(data.user.email);
         setPhone(data.user.phone);
       });
@@ -58,7 +62,16 @@ const AdminUserDetailsPage = () => {
     axios
       .patch(
         `/users/${id}`,
-        { name, email, phone, password },
+        password
+          ? {
+              name,
+              email,
+              phone,
+              isAdminAddProduct,
+              isAdminOrderViewer,
+              password,
+            }
+          : { name, email, phone, isAdminAddProduct, isAdminOrderViewer },
         {
           headers: {
             "Content-Type": "application/json",
@@ -120,6 +133,58 @@ const AdminUserDetailsPage = () => {
                 <label htmlFor="phone">Тел. номер</label>
               </div>
             </div>
+
+            <div className="row">
+              <div className="col s4">
+                <p>
+                  <label>
+                    <input
+                      className="with-gap"
+                      name="group1"
+                      onChange={(e) => {
+                        setIsAdminAddProduct(true);
+                        setIsAdminOrderViewer(false);
+                      }}
+                      type="radio"
+                    />
+                    <span>Админ 2 добавить товар</span>
+                  </label>
+                </p>
+              </div>
+              <div className="col s4">
+                <p>
+                  <label>
+                    <input
+                      className="with-gap"
+                      onChange={(e) => {
+                        setIsAdminOrderViewer(true);
+                        setIsAdminAddProduct(false);
+                      }}
+                      name="group1"
+                      type="radio"
+                    />
+                    <span>Админ 3 работает заказамы</span>
+                  </label>
+                </p>
+              </div>
+              <div className="col s4">
+                <p>
+                  <label>
+                    <input
+                      onChange={(e) => {
+                        setIsAdminAddProduct(false);
+                        setIsAdminOrderViewer(false);
+                      }}
+                      className="with-gap"
+                      name="group1"
+                      type="radio"
+                    />
+                    <span>Обычный ползователь</span>
+                  </label>
+                </p>
+              </div>
+            </div>
+
             <div className="row">
               <div className="input-field col s12">
                 <input

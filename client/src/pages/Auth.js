@@ -34,7 +34,13 @@ const Auth = () => {
       console.log(data.user.isAdmin);
 
       window.M.toast({ html: "Вы успешно вошли", classes: "loginToast" });
-      auth.login(data.token, data.user._id, data.user.isAdmin);
+      auth.login(
+        data.token,
+        data.user._id,
+        data.user.isAdmin,
+        data.user.isAdminAddProduct,
+        data.user.isAdminOrderViewer
+      );
       history.push("/");
     } catch (e) {
       window.M.toast({ html: "Что то пошло не так", classes: "loginToastRed" });

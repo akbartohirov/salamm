@@ -25,8 +25,11 @@ const Product = () => {
         JSON.stringify([
           {
             productId: product._id,
+            img: product.img,
+            title: product.title,
             quantity: 1,
             price: product.sellPrice,
+            amount: product.amount,
           },
         ])
       );
@@ -43,8 +46,11 @@ const Product = () => {
       } else if (addedProduct && !productIds.includes(product._id)) {
         addedProduct.push({
           productId: product._id,
+          img: product.img,
+          title: product.title,
           quantity: 1,
           price: product.sellPrice,
+          amount: product.amount,
         });
         localStorage.setItem("salamBasket", JSON.stringify(addedProduct));
         window.M.toast({ html: "Продукт добавлен", classes: "loginToast" });

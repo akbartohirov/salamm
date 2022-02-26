@@ -25,8 +25,10 @@ import AdminCompaniesPage from "../pages/adminpages/AdminCompaniesPage";
 import AdminBrandsPage from "../pages/adminpages/AdminBrandsPage";
 import AdminBrandDetailsPage from "../pages/adminpages/admindetailspage/AdminBrandDetailsPage";
 import Brands from "../pages/Brands";
+import AdminOnlyAddProduct from "../pages/adminpages/AdminOnlyAddProduct";
+import AdminOnlyViewOrders from "../pages/adminpages/AdminOnlyViewOrders";
 
-const useRoutes = (isAuthenticated, user) => {
+const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
   if (isAuthenticated) {
     return (
       <Switch>
@@ -65,6 +67,18 @@ const useRoutes = (isAuthenticated, user) => {
         <Route exact path="/register">
           <Register />
         </Route>
+
+        {addProduct && (
+          <Route exact path="/admin/onlyaddproduct">
+            <AdminOnlyAddProduct />
+          </Route>
+        )}
+
+        {orderViewer && (
+          <Route exact path="/admin/onlyorderview">
+            <AdminOnlyViewOrders />
+          </Route>
+        )}
 
         {user && (
           <>
