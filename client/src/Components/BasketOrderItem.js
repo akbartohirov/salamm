@@ -2,7 +2,6 @@ import React from "react";
 import "./BasketOrderItem.css";
 
 const BasketOrderItem = ({ data, deleteHandler, quantityHandler }) => {
-  console.log(data);
   return (
     <div className="row basket-item mb-2">
       <div className="col s2 order-image-box ml-1 flexed ">

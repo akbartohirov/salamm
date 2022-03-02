@@ -1,11 +1,15 @@
 import React from "react";
 import "./Basket.css";
 import BasketOrderItem from "../Components/BasketOrderItem";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Basket = () => {
   const [active, setActive] = React.useState("Доставка");
   const [typeUser, setTypeUser] = React.useState("individual");
   const [orders, setOrders] = React.useState([]);
+
+  const history = useHistory();
 
   //getting orders from localstorage and request
   React.useEffect(() => {
@@ -82,28 +86,28 @@ const Basket = () => {
       });
       return;
     } else {
-      console.log(entityOrder);
-      // axios
-      //   .post("/orders", entityOrder, {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: JSON.parse(localStorage.getItem("userData")).token,
-      //     },
-      //   })
-      //   .then((res) => {
-      //     setEntityOrder(initialState);
-      //     window.M.toast({
-      //       html: "Вы успешно отправили ваш заказ",
-      //       classes: "loginToast",
-      //     });
-      //   })
-      //   .catch((e) => {
-      //     console.log(e.message);
-      //     window.M.toast({
-      //       html: "Что то прошло не так",
-      //       classes: "loginToastYellow",
-      //     });
-      //   });
+      axios
+        .post("/orders", entityOrder, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: JSON.parse(localStorage.getItem("userData")).token,
+          },
+        })
+        .then((res) => {
+          setEntityOrder(initialState);
+          window.M.toast({
+            html: "Заказ успешно принят",
+            classes: "loginToast",
+          });
+          history.push(`/ordered/${res.data._id}`);
+        })
+        .catch((e) => {
+          console.log(e.message);
+          window.M.toast({
+            html: "Что то прошло не так",
+            classes: "loginToastYellow",
+          });
+        });
     }
   };
 

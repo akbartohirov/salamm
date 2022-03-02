@@ -139,6 +139,22 @@ const AdminUserDetailsPage = () => {
                 <p>
                   <label>
                     <input
+                      onChange={(e) => {
+                        setIsAdminAddProduct(false);
+                        setIsAdminOrderViewer(false);
+                      }}
+                      className="with-gap"
+                      name="group1"
+                      type="radio"
+                    />
+                    <span>Обычный ползователь</span>
+                  </label>
+                </p>
+              </div>
+              <div className="col s4">
+                <p>
+                  <label>
+                    <input
                       className="with-gap"
                       name="group1"
                       onChange={(e) => {
@@ -147,7 +163,7 @@ const AdminUserDetailsPage = () => {
                       }}
                       type="radio"
                     />
-                    <span>Админ 2 добавить товар</span>
+                    <span>Админ 1 добавить товар</span>
                   </label>
                 </p>
               </div>
@@ -163,23 +179,7 @@ const AdminUserDetailsPage = () => {
                       name="group1"
                       type="radio"
                     />
-                    <span>Админ 3 работает заказамы</span>
-                  </label>
-                </p>
-              </div>
-              <div className="col s4">
-                <p>
-                  <label>
-                    <input
-                      onChange={(e) => {
-                        setIsAdminAddProduct(false);
-                        setIsAdminOrderViewer(false);
-                      }}
-                      className="with-gap"
-                      name="group1"
-                      type="radio"
-                    />
-                    <span>Обычный ползователь</span>
+                    <span>Админ 2 работает заказамы</span>
                   </label>
                 </p>
               </div>

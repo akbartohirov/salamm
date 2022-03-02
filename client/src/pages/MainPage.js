@@ -127,32 +127,13 @@ const MainPage = () => {
         <div className="brand">
           {brands &&
             brands.map((brand) => (
-              <Link key={brand._id} to={`/brand/${brand._id}`}>
-                <img
-                  src={`/${brand.img.path}`}
-                  style={{ height: "150px", width: "auto", margin: "20px" }}
-                  alt={brand.brandName}
-                />
-              </Link>
-            ))}
-          {brands &&
-            brands.map((brand) => (
-              <Link key={brand._id} to={`/brand/${brand._id}`}>
-                <img
-                  src={`/${brand.img.path}`}
-                  style={{ height: "150px", width: "auto", margin: "20px" }}
-                  alt={brand.brandName}
-                />
-              </Link>
-            ))}
-          {brands &&
-            brands.map((brand) => (
               <Link
                 style={{ textAlign: "center" }}
                 key={brand._id}
                 to={`/brand/${brand._id}`}
               >
                 <img
+                  className="responsive"
                   src={`/${brand.img.path}`}
                   style={{ height: "150px", width: "auto", margin: "20px" }}
                   alt={brand.brandName}
@@ -173,6 +154,7 @@ const MainPage = () => {
                 href={`${company.companyLink}`}
               >
                 <img
+                  className="responsive"
                   src={`/${company.img.path}`}
                   style={{ height: "150px", width: "auto", margin: "20px" }}
                   alt={company.companyLink}

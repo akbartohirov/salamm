@@ -114,3 +114,9 @@
   padding: 10px;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .responsive {
+    height: 100px !important;
+  }
+}

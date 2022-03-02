@@ -27,6 +27,7 @@ import AdminBrandDetailsPage from "../pages/adminpages/admindetailspage/AdminBra
 import Brands from "../pages/Brands";
 import AdminOnlyAddProduct from "../pages/adminpages/AdminOnlyAddProduct";
 import AdminOnlyViewOrders from "../pages/adminpages/AdminOnlyViewOrders";
+import Ordered from "../pages/Ordered";
 
 const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
   if (isAuthenticated) {
@@ -68,16 +69,30 @@ const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
           <Register />
         </Route>
 
+        <Route exact path="/ordered/:id">
+          <Ordered />
+        </Route>
+
         {addProduct && (
-          <Route exact path="/admin/onlyaddproduct">
-            <AdminOnlyAddProduct />
-          </Route>
+          <>
+            <Route exact path="/admin/onlyaddproduct">
+              <AdminOnlyAddProduct />
+            </Route>
+            <Route exact path="/admin/products/:id">
+              <AdminProductDetailsPage />
+            </Route>
+          </>
         )}
 
         {orderViewer && (
-          <Route exact path="/admin/onlyorderview">
-            <AdminOnlyViewOrders />
-          </Route>
+          <>
+            <Route exact path="/admin/onlyorderview">
+              <AdminOnlyViewOrders />
+            </Route>
+            <Route exact path="/admin/orders/:id">
+              <AdminOrderDetailsPage />
+            </Route>
+          </>
         )}
 
         {user && (

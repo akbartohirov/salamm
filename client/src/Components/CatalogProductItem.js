@@ -46,8 +46,8 @@ const CatalogProductItem = ({ data, ownstyle }) => {
   };
 
   return (
-    <div className="col s12 m6 l4 xl3" style={ownstyle && ownstyle}>
-      <div className="card">
+    <div style={ownstyle && ownstyle}>
+      <div className="card card-cont">
         <div
           className="card-image"
           style={{ height: "220px", overflow: "hidden", position: "relative" }}

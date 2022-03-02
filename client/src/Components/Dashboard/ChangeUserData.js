@@ -31,6 +31,8 @@ const ChangeUserData = ({ userData }) => {
     window.location.reload();
   };
 
+  window.M.updateTextFields();
+
   return (
     <div>
       <h3>Изменить Данные</h3>

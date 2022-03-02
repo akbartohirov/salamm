@@ -91,7 +91,7 @@ const AdminOrderDetailsPage = () => {
               } ${status === "Отменён" && "red"}`}
             >
               <option value="" disabled>
-                Choose your option
+                Выбрать
               </option>
               <option
                 style={{ margin: "10px" }}
