@@ -32,17 +32,6 @@ const Ordered = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const merchantID = "620f674aef83e39e2e3d5021";
-    order.phone &&
-      order.products
-        .map((product) => product.quantity * product.price)
-        .reduce((acc, item) => acc + item);
-    const amount =
-      order.phone &&
-      order.products
-        .map((product) => product.quantity * product.price)
-        .reduce((acc, item) => acc + item);
-
     axios
       .post(
         `https://checkout.paycom.uz/api`,
