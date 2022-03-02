@@ -44,7 +44,15 @@ const Ordered = () => {
         .reduce((acc, item) => acc + item);
 
     axios
-      .post(`https://checkout.paycom.uz/api`)
+      .post(
+        `https://checkout.paycom.uz/api`,
+        {},
+        {
+          headers: {
+            Authorization: `X-Auth `,
+          },
+        }
+      )
       .then((res) => console.log(res.data));
   };
 
