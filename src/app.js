@@ -14,6 +14,7 @@ const subSubCategoryRoutes = require("./routes/subSubCategoryRoutes");
 const brandRoutes = require("./routes/brandRoutes");
 const companyRoutes = require("./routes/companyRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
+const bannerRoutes = require("./routes/bannerRoutes");
 
 mongoose
   .connect(process.env.DB, {
@@ -38,6 +39,7 @@ app.use("/subsubcategory", subSubCategoryRoutes);
 app.use("/brand", brandRoutes);
 app.use("/companies", companyRoutes);
 app.use("/payment", paymentRoutes);
+app.use("/banner", bannerRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "../client/build")));

@@ -65,6 +65,13 @@ const AdminSidebar = () => {
                 <span className="sidebarListItemTitle">Компании</span>
               </li>
             </Link>
+
+            <Link to="/admin/banner">
+              <li className="sidebarListItem">
+                <i className="fas fa-image sidebarIcon"></i>
+                <span className="sidebarListItemTitle">Баннер</span>
+              </li>
+            </Link>
           </>
         )}
         {data.addProduct && (

@@ -12,10 +12,18 @@ const MainPage = () => {
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [companies, setCompanies] = useState([]);
+  const [banner, setBanner] = useState([]);
 
   useEffect(() => {
     axios.get("/products?new=true").then((res) => {
       setProducts(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("/banner").then((res) => {
+      setBanner(res.data);
+      console.log(res.data);
     });
   }, []);
 
@@ -82,7 +90,13 @@ const MainPage = () => {
         </div>
       </div>
 
-      <div className="box-image mb-3">
+      <div
+        style={{
+          backgroundImage: `url(${banner.length > 0 && banner[0].img.path})`,
+          backgroundSize: "cover",
+        }}
+        className="box-image mb-3"
+      >
         <Link to="/catalog">
           <div className="box-image__catalog mr-2 valign-wrapper">
             <i className="fas fa-list" style={{ marginRight: "5px" }}></i>

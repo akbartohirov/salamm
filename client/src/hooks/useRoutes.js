@@ -27,6 +27,7 @@ import AdminBrandDetailsPage from "../pages/adminpages/admindetailspage/AdminBra
 import Brands from "../pages/Brands";
 import AdminOnlyAddProduct from "../pages/adminpages/AdminOnlyAddProduct";
 import AdminOnlyViewOrders from "../pages/adminpages/AdminOnlyViewOrders";
+import AdminBannerPage from "../pages/adminpages/AdminBannerPage";
 import Ordered from "../pages/Ordered";
 
 const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
@@ -150,6 +151,14 @@ const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
             </Route>
 
             <Route exact path="/admin/brands/:id">
+              <AdminBrandDetailsPage />
+            </Route>
+
+            <Route exact path="/admin/banner">
+              <AdminBannerPage />
+            </Route>
+
+            <Route exact path="/admin/banner/:id">
               <AdminBrandDetailsPage />
             </Route>
 
