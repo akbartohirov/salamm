@@ -28,6 +28,8 @@ import Brands from "../pages/Brands";
 import AdminOnlyAddProduct from "../pages/adminpages/AdminOnlyAddProduct";
 import AdminOnlyViewOrders from "../pages/adminpages/AdminOnlyViewOrders";
 import AdminBannerPage from "../pages/adminpages/AdminBannerPage";
+import AdminCarouselPage from "../pages/adminpages/AdminCarouselPage";
+import AdminCarouselDetailsPage from "../pages/adminpages/admindetailspage/AdminCarouselDetailsPage";
 import Ordered from "../pages/Ordered";
 
 const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
@@ -164,6 +166,14 @@ const useRoutes = (isAuthenticated, user, addProduct, orderViewer) => {
 
             <Route exact path="/admin/companies">
               <AdminCompaniesPage />
+            </Route>
+
+            <Route exact path="/admin/carousels">
+              <AdminCarouselPage />
+            </Route>
+
+            <Route exact path="/admin/carousel/:id">
+              <AdminCarouselDetailsPage />
             </Route>
           </>
         )}

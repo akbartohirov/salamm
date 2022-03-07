@@ -13,6 +13,7 @@ const MainPage = () => {
   const [brands, setBrands] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [banner, setBanner] = useState([]);
+  const [carousel, setCarousel] = useState([]);
 
   useEffect(() => {
     axios.get("/products?new=true").then((res) => {
@@ -23,7 +24,6 @@ const MainPage = () => {
   useEffect(() => {
     axios.get("/banner").then((res) => {
       setBanner(res.data);
-      console.log(res.data);
     });
   }, []);
 
@@ -36,6 +36,13 @@ const MainPage = () => {
   useEffect(() => {
     axios.get("/brand").then((res) => {
       setBrands(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("/carousel").then((res) => {
+      setCarousel(res.data);
+      console.log(res.data.filter((i) => i.slidenum === "1"));
     });
   }, []);
 
@@ -122,14 +129,19 @@ const MainPage = () => {
         </div>
       </div>
 
-      <AutoCarousel />
+      <AutoCarousel
+        slides={carousel.length && carousel.filter((i) => i.slidenum === "1")}
+      />
       <Slick
         data={products && products}
         Card={CatalogProductItem}
         numSlide={4}
       />
 
-      <AutoCarousel />
+      <AutoCarousel
+        slides={carousel.length && carousel.filter((i) => i.slidenum === "2")}
+      />
+
       <h4 style={{ color: "grey", fontWeight: "500" }}>Хит продажи</h4>
       <Slick
         data={products && products}
@@ -137,7 +149,7 @@ const MainPage = () => {
         numSlide={4}
       />
       <div className="brands">
-        <h3>Популярные бренды</h3>
+        <h4 style={{ color: "grey", fontWeight: "500" }}>Популярные бренды</h4>
         <div className="brand">
           {brands &&
             brands.map((brand) => (
@@ -158,7 +170,7 @@ const MainPage = () => {
       </div>
 
       <div>
-        <h3>Наши сотрудники</h3>
+        <h4 style={{ color: "grey", fontWeight: "500" }}>Наши сотрудники</h4>
         <div className="brand">
           {companies &&
             companies.map((company) => (

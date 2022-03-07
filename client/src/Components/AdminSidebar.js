@@ -4,7 +4,6 @@ import "./AdminSidebar.css";
 
 const AdminSidebar = () => {
   const data = JSON.parse(localStorage.getItem("userData"));
-  console.log(data);
 
   return (
     <div className="adminSidebar">
@@ -59,6 +58,7 @@ const AdminSidebar = () => {
                 <span className="sidebarListItemTitle">Бренды</span>
               </li>
             </Link>
+
             <Link to="/admin/companies">
               <li className="sidebarListItem">
                 <i className="fas fa-building sidebarIcon"></i>
@@ -70,6 +70,13 @@ const AdminSidebar = () => {
               <li className="sidebarListItem">
                 <i className="fas fa-image sidebarIcon"></i>
                 <span className="sidebarListItemTitle">Баннер</span>
+              </li>
+            </Link>
+
+            <Link to="/admin/carousels">
+              <li className="sidebarListItem">
+                <i className="fas fa-image sidebarIcon"></i>
+                <span className="sidebarListItemTitle">Слайды</span>
               </li>
             </Link>
           </>
