@@ -14,7 +14,6 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  console.log(file.mimetype);
   if (
     file.mimetype === "image/jpeg" ||
     file.mimetype === "image/png" ||
@@ -53,10 +52,10 @@ router.get("/:id", async (req, res) => {
     const carousel = await Carousel.findById(id);
 
     if (!carousel) {
-      return res.status(404).send({ message: "brand not found" });
+      return res.status(404).send({ message: "carousel not found" });
     }
 
-    res.status(200).send(banner);
+    res.status(200).send(carousel);
   } catch (e) {
     res.status(500).send({ error: e.message });
   }
@@ -64,23 +63,53 @@ router.get("/:id", async (req, res) => {
 
 router.patch("/:id", upload.single("img"), async (req, res) => {
   const id = req.params.id;
-  const { link } = req.body;
-  const img = req.file;
+  const { link, slidenum } = req.body;
+  const path = req.file;
 
   try {
     const carousel = await Carousel.findById(id);
 
     if (carousel) {
-      carousel.link = link ? link : banner.link;
-      banner.img = img
-        ? { filename: img.filename, path: img.path }
-        : banner.img;
+      carousel.link = link ? link : carousel.link;
+      carousel.path = path ? path : carousel.path;
+      carousel.slidenum = slidenum ? slidenum : carousel.slidenum;
 
-      await banner.save();
-      res.status(200).send(banner);
+      await carousel.save();
+      res.status(200).send(carousel);
     } else {
       res.status(404).send({ message: e.message });
     }
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+});
+
+router.post("/", upload.single("img"), async (req, res) => {
+  const { path } = req.file;
+  const { link, slidenum } = req.body;
+
+  try {
+    const carousel = await Carousel.create({ link, slidenum, path });
+
+    res.status(201).send(carousel);
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const carousel = await Carousel.findById(id);
+
+    if (!carousel) {
+      return res.status(404).send({ message: "carousel not found" });
+    }
+
+    await carousel.remove();
+
+    res.status(200).send("Удалено");
   } catch (e) {
     res.status(500).send({ error: e.message });
   }

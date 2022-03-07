@@ -2,13 +2,9 @@ const mongoose = require("mongoose");
 
 const CarouselSchema = new mongoose.Schema(
   {
-    img: [
-      {
-        filename: { type: String, required: true },
-        path: { type: String, required: true },
-        link: { type: String },
-      },
-    ],
+    path: { type: String, required: true },
+    link: { type: String },
+    slidenum: { type: String, required: true },
   },
   {
     timestamps: true,

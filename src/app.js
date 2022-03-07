@@ -15,6 +15,7 @@ const brandRoutes = require("./routes/brandRoutes");
 const companyRoutes = require("./routes/companyRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const bannerRoutes = require("./routes/bannerRoutes");
+const carouselRoutes = require("./routes/carouselRoutes");
 
 mongoose
   .connect(process.env.DB, {
@@ -40,6 +41,7 @@ app.use("/brand", brandRoutes);
 app.use("/companies", companyRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/banner", bannerRoutes);
+app.use("/carousel", carouselRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "../client/build")));
