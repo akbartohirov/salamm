@@ -58,11 +58,11 @@ const CatalogProduct = () => {
               <i className="small material-icons">chevron_left</i>
               Назад
             </Link>
-            <h3>
-              {subCategories.length > 0 &&
+            <h4 style={{ fontWeight: 500, marginBottom: "2rem" }}>
+              {subCategories.length &&
                 subCategories.find((el) => el._id === subcategory)
                   ?.subCategoryName}
-            </h3>
+            </h4>
             <div className="subsubcategories">
               {subSubCategories.length &&
                 subSubCategories
@@ -70,12 +70,12 @@ const CatalogProduct = () => {
                     (el) =>
                       el.subCategory ===
                       subCategories.find((el) => el._id === subcategory)
-                        .subCategoryName
+                        ?.subCategoryName
                   )
                   .map((item) => (
                     <Link
                       to={`/products/${item._id}`}
-                      style={{ color: "#000", fontSize: "24px" }}
+                      style={{ color: "#000", fontSize: "16px" }}
                       className="subsubcategory__item link__hover"
                       key={item._id}
                     >
@@ -100,14 +100,16 @@ const CatalogProduct = () => {
               <i className="small material-icons">chevron_left</i>
               Назад
             </Link>
-            <h3>{category.categoryName}</h3>
+            <h4 style={{ fontWeight: 500, marginBottom: "2rem" }}>
+              {category.categoryName}
+            </h4>
             <div className="subcategory-box">
               {subCategories.length > 0 &&
                 category.categoryName &&
                 subCategories
                   .filter((el) => el.category === category.categoryName)
                   .map((el) => (
-                    <div key={el._id} className="subcategory mr-3">
+                    <div key={el._id} className="subcategory">
                       <div
                         className="subcategory-img"
                         style={{ width: "100px" }}
@@ -120,7 +122,12 @@ const CatalogProduct = () => {
                         >
                           <span
                             className="link__hover"
-                            style={{ color: "#000", fontSize: "24px" }}
+                            style={{
+                              color: "#000",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              marginBottom: "10px",
+                            }}
                           >
                             {el.subCategoryName}
                           </span>

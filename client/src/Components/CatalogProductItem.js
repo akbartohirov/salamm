@@ -45,12 +45,14 @@ const CatalogProductItem = ({ data, ownstyle }) => {
     }
   };
 
+  const formatter = new Intl.NumberFormat();
+
   return (
     <div style={ownstyle && ownstyle}>
       <div className="card card-cont">
         <div
           className="card-image"
-          style={{ height: "220px", overflow: "hidden", position: "relative" }}
+          style={{ height: "180px", overflow: "hidden", position: "relative" }}
         >
           <img
             style={{
@@ -72,9 +74,9 @@ const CatalogProductItem = ({ data, ownstyle }) => {
             {data.title}
           </Link>
           <p
-            style={{ textAlign: "right", fontWeight: "600", fontSize: "24px" }}
+            style={{ textAlign: "right", fontWeight: "600", fontSize: "20px" }}
           >
-            {data.sellPrice} сум
+            {formatter.format(data.sellPrice)} сум
           </p>
         </div>
         <div className="card-action">

@@ -31,29 +31,61 @@
 }
 
 .subcategory-box {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 22% 22% 22% 22%;
+  grid-gap: 4%;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 525px) {
+  .subcategory-box {
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (min-width: 525px) {
+  .subcategory-box {
+    grid-template-columns: 48% 48%;
+    grid-gap: 4%;
+  }
+}
+
+@media screen and (min-width: 786px) {
+  .subcategory-box {
+    grid-gap: 3%;
+    grid-template-columns: 31% 31% 31%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .subcategory-box {
+    grid-template-columns: 22% 22% 22% 22%;
+    grid-gap: 4%;
+  }
 }
 
 .subcategory {
-  margin: 0 20px;
   display: flex;
-  width: 330px;
+  height: 150px;
+}
+
+.subcategory-img {
+  width: 30%;
 }
 
 .subcategory-content {
   display: flex;
+  width: 70%;
   flex-direction: column;
 }
 
 .subsubcategories {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 22% 22% 22% 22%;
+  grid-gap: 4%;
+  margin-bottom: 20px;
 }
 
 .subsubcategory__item {
-  font-size: 18px;
-  margin: 10px 15px;
-  width: 250px;
+  font-size: 16px;
 }

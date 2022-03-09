@@ -2,7 +2,6 @@ import React from "react";
 import AdminSidebar from "../../Components/AdminSidebar";
 import "./AdminUsersPage.css";
 import axios from "axios";
-import Loading from "../../Components/Loading/Loading";
 import { Link } from "react-router-dom";
 
 const AdminBrandsPage = () => {
@@ -83,8 +82,7 @@ const AdminBrandsPage = () => {
                     onChange={(e) => setImg(e.target.files[0])}
                   />
                 </div>
-                <option value="2">Option 1</option>
-                <option value="3">Option 2</option>{" "}
+
                 <div className="file-path-wrapper">
                   <input className="file-path validate" type="text" />
                 </div>
@@ -190,7 +188,7 @@ const AdminBrandsPage = () => {
               ))}
           </tbody>
         </table>
-        {carousel.length === 0 && <Loading />}
+        {carousel.length === 0 && <h5>Пока слайдов нет</h5>}
       </div>
     </div>
   );

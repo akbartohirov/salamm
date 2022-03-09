@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 
 const CatalogItem = ({ item, subs }) => {
   return (
-    <div className="catalog__item mr-2">
-      <div className="catalog__item-img mr-1">
-        <img width={"40px"} src={`/${item.img.path}`} alt="" />
+    <div className="catalog__item">
+      <div className="catalog__item-img">
+        <img src={`/${item.img.path}`} alt="img" />
       </div>
       <div className="catalog__item-content">
         <Link to={`/category/${item._id}`}>
           <span
             className="link__hover"
-            style={{ fontSize: "24px", fontWeight: 500, color: "#000" }}
+            style={{ fontSize: "20px", fontWeight: 600, color: "#000" }}
           >
             {item.categoryName}
           </span>

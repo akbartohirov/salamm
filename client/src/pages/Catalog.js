@@ -24,7 +24,7 @@ const Catalog = () => {
 
   return (
     <div className="container mb-3">
-      <h3>Каталог</h3>
+      <h4 style={{ fontWeight: "500", marginBottom: "2rem" }}>Каталог</h4>
       <div className="catalog">
         {category.length === 0 ? (
           <Loading />

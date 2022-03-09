@@ -1,6 +1,29 @@
 .catalog {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 20px;
+}
+
+@media screen and (max-width: 525px) {
+  .catalog {
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (min-width: 525px) {
+  .catalog {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (min-width: 786px) {
+  .catalog {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .catalog {
+    grid-template-columns: auto auto auto auto;
+  }
 }
