@@ -146,9 +146,6 @@ router.get("/", async (req, res) => {
   try {
     const qNew = req.query.new;
     const qCategory = req.query.category;
-    const sorted = req.query.sorted;
-
-    console.log(sorted);
 
     let products;
 

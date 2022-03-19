@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.e51a1864.chunk.css",
-    "main.js": "/static/js/main.1a3875b5.chunk.js",
-    "main.js.map": "/static/js/main.1a3875b5.chunk.js.map",
+    "main.css": "/static/css/main.3c172b06.chunk.css",
+    "main.js": "/static/js/main.38faceed.chunk.js",
+    "main.js.map": "/static/js/main.38faceed.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
     "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
     "static/css/2.1a0e5cb2.chunk.css": "/static/css/2.1a0e5cb2.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.cdce0828.chunk.js.map": "/static/js/2.cdce0828.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.1a0e5cb2.chunk.css.map": "/static/css/2.1a0e5cb2.chunk.css.map",
-    "static/css/main.e51a1864.chunk.css.map": "/static/css/main.e51a1864.chunk.css.map",
+    "static/css/main.3c172b06.chunk.css.map": "/static/css/main.3c172b06.chunk.css.map",
     "static/js/2.cdce0828.chunk.js.LICENSE.txt": "/static/js/2.cdce0828.chunk.js.LICENSE.txt",
     "static/media/Salam Market logo.a94607ab.svg": "/static/media/Salam Market logo.a94607ab.svg"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.900dd88b.js",
     "static/css/2.1a0e5cb2.chunk.css",
     "static/js/2.cdce0828.chunk.js",
-    "static/css/main.e51a1864.chunk.css",
-    "static/js/main.1a3875b5.chunk.js"
+    "static/css/main.3c172b06.chunk.css",
+    "static/js/main.38faceed.chunk.js"
   ]
 }
