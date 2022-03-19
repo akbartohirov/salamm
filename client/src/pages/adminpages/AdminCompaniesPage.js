@@ -28,7 +28,7 @@ const AdminBrandsPage = () => {
     fd.append("img", img);
 
     axios
-      .post("/brand", fd, {
+      .post("/companies", fd, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ const AdminBrandsPage = () => {
       })
       .then((res) => {
         setCreated(res.data.brandName + Date.now());
-        window.M.toast({ html: "Бренд создан", classes: "loginToast" });
+        window.M.toast({ html: "Сотрудник создан", classes: "loginToast" });
       })
       .catch((e) => {
         window.M.toast({ html: e.message, classes: "loginTostRed" });
@@ -54,7 +54,10 @@ const AdminBrandsPage = () => {
       })
       .then((res) => {
         setCreated(res.data.message + Date.now());
-        window.M.toast({ html: "Бренд удален", classes: "loginToastYellow" });
+        window.M.toast({
+          html: "Сотрудник удален",
+          classes: "loginToastYellow",
+        });
       })
       .catch((e) => {
         window.M.toast({ html: e.message, classes: "loginToastRed" });
@@ -65,7 +68,7 @@ const AdminBrandsPage = () => {
     <div className="adminPage">
       <div id="modal1" className="modal modal-fixed-footer">
         <div className="modal-content">
-          <h4>Cоздать Бренд</h4>
+          <h4>Cоздать Сотрудников</h4>
           <form
             className="col m6 offset-m3"
             style={{ padding: "0 2rem" }}
@@ -141,7 +144,7 @@ const AdminBrandsPage = () => {
               window.M.Modal.init(elem);
             }}
           >
-            Создать Бренд
+            Создать Сотрудников
           </button>
         </div>
 

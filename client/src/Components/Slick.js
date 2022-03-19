@@ -38,6 +38,7 @@ const Slick = ({ data, Card, numSlide }) => {
       },
     ],
   };
+
   return (
     <div className="mb-3">
       <Slider {...settings}>

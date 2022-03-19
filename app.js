@@ -2,20 +2,20 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const authRouter = require("./routes/authRouter");
-const userRouter = require("./routes/userRouter");
-const productRouter = require("./routes/productRouter");
-const orderRouter = require("./routes/orderRouter");
+const authRouter = require("./src/routes/authRouter");
+const userRouter = require("./src/routes/userRouter");
+const productRouter = require("./src/routes/productRouter");
+const orderRouter = require("./src/routes/orderRouter");
 dotenv.config({ path: ".env" });
 const cors = require("cors");
-const categoryRoutes = require("./routes/categoryRoutes");
-const subCategoryRoutes = require("./routes/subCategoryRoutes");
-const subSubCategoryRoutes = require("./routes/subSubCategoryRoutes");
-const brandRoutes = require("./routes/brandRoutes");
-const companyRoutes = require("./routes/companyRoutes");
-const paymentRoutes = require("./routes/paymentRoutes");
-const bannerRoutes = require("./routes/bannerRoutes");
-const carouselRoutes = require("./routes/carouselRoutes");
+const categoryRoutes = require("./src/routes/categoryRoutes");
+const subCategoryRoutes = require("./src/routes/subCategoryRoutes");
+const subSubCategoryRoutes = require("./src/routes/subSubCategoryRoutes");
+const brandRoutes = require("./src/routes/brandRoutes");
+const companyRoutes = require("./src/routes/companyRoutes");
+const paymentRoutes = require("./src/routes/paymentRoutes");
+const bannerRoutes = require("./src/routes/bannerRoutes");
+const carouselRoutes = require("./src/routes/carouselRoutes");
 
 mongoose
   .connect(process.env.DB, {

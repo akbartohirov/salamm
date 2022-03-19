@@ -130,10 +130,25 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.get("/sorted", async (req, res) => {
+  try {
+    let sortedProducts = await Product.find();
+
+    sortedProducts = [...sortedProducts].sort((a, b) => b.seen - a.seen);
+
+    res.status(200).send(sortedProducts);
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+});
+
 router.get("/", async (req, res) => {
   try {
     const qNew = req.query.new;
     const qCategory = req.query.category;
+    const sorted = req.query.sorted;
+
+    console.log(sorted);
 
     let products;
 
@@ -158,7 +173,11 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const product = await Product.findById(id);
+    let product = await Product.findById(id);
+    product.seen++;
+    console.log(product);
+
+    await product.save();
 
     res.status(200).send(product);
   } catch (e) {

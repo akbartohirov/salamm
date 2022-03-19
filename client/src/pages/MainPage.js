@@ -10,6 +10,7 @@ import SearchProductItem from "../Components/SearchProductItem";
 
 const MainPage = () => {
   const [products, setProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [banner, setBanner] = useState([]);
@@ -18,6 +19,12 @@ const MainPage = () => {
   useEffect(() => {
     axios.get("/products?new=true").then((res) => {
       setProducts(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("/products/sorted").then((res) => {
+      setSortedProducts(res.data);
     });
   }, []);
 
@@ -80,14 +87,14 @@ const MainPage = () => {
     <div className="container">
       <div id="modal1" className="modal modal-fixed-footer">
         <div className="modal-content">
-          <h4>Товары по запросу "{searchWord}"</h4>
+          <h5 className="responsive">Товары по запросу "{searchWord}"</h5>
           <hr />
           {searchedProducts.length > 0 ? (
             searchedProducts.map((item, index) => (
               <SearchProductItem key={index} data={item} />
             ))
           ) : (
-            <h3>{error}</h3>
+            <h5>{error}</h5>
           )}
         </div>
         <div className="modal-footer">
@@ -132,6 +139,8 @@ const MainPage = () => {
       <AutoCarousel
         slides={carousel.length && carousel.filter((i) => i.slidenum === "1")}
       />
+      <h4 style={{ color: "grey", fontWeight: "500" }}>Новые товары</h4>
+
       <Slick
         data={products && products}
         Card={CatalogProductItem}
@@ -142,9 +151,11 @@ const MainPage = () => {
         slides={carousel.length && carousel.filter((i) => i.slidenum === "2")}
       />
 
-      <h4 style={{ color: "grey", fontWeight: "500" }}>Хит продажи</h4>
+      <h4 style={{ color: "grey", fontWeight: "500" }}>
+        Самые посещаемые товары
+      </h4>
       <Slick
-        data={products && products}
+        data={sortedProducts && sortedProducts}
         Card={CatalogProductItem}
         numSlide={4}
       />

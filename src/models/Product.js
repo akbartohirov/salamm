@@ -13,6 +13,7 @@ const ProductSchema = new mongoose.Schema(
     boughtPrice: { type: String, required: true },
     sellPrice: { type: String, required: true },
     amount: { type: Number, required: true },
+    seen: { type: Number, default: 0 },
   },
   {
     timestamps: true,
