@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import logo3 from "../Salam Market logo.svg";
+// import logo from "../logo.svg";
+import logo from "../Salammarketlogo.png";
 import AuthContext from "../Context/AuthContext";
 
 const Navbar = ({ isAuthenticated, isAdmin, addProduct, orderViewer }) => {
@@ -31,7 +32,7 @@ const Navbar = ({ isAuthenticated, isAdmin, addProduct, orderViewer }) => {
             <img
               alt="logo"
               className="logo"
-              src={logo3}
+              src={logo}
               style={{ height: "100%", padding: "10px" }}
             />
           </a>
